@@ -131,12 +131,23 @@ bool BestParkingSpaceScenario::IsTransferable(const Scenario* const other_scenar
                             auto obstacle_polygon_x = (obstacle_polygon[1].x()+obstacle_polygon[3].x())/2;
                             if(obstacle_polygon_y>parking_spot[0].y()&&obstacle_polygon_y<parking_spot[1].y())
                             {
-                                if(obstacle_polygon_x>parking_spot[1].x()&&obstacle_polygon_x<parking_spot[3].x())
+                                if(obstacle_polygon_x>parking_spot[1].x()&&obstacle_polygon_x<parking_spot[3].x()+3)
                                 {
                                     flag=0;
-                                    break;    
+                                    AINFO<<"flag=0";
+                                    AINFO<<"obstacle_id:"<<obstacle->Id()<<"parking_space_id:"<<parking_space->parking_space().id().id();
+                                    AINFO<<"parking_spot[1].x()"<<parking_spot[1].x();
+                                    AINFO<<"parking_spot[3].x():"<<parking_spot[3].x();
+                                    AINFO<<"obstacle_polygon_x:"<<obstacle_polygon_x;
                                 }
-                              
+                                else
+                                {
+                                    AINFO<<"flag=1";
+                                    AINFO<<"obstacle_id:"<<obstacle->Id()<<"parking_space_id:"<<parking_space->parking_space().id().id();
+                                    AINFO<<"parking_spot[1].x()"<<parking_spot[1].x();
+                                    AINFO<<"parking_spot[3].x():"<<parking_spot[3].x();
+                                    AINFO<<"obstacle_polygon_x:"<<obstacle_polygon_x;
+                                }
                             }
                         }
                         if(flag==1)
@@ -146,6 +157,7 @@ bool BestParkingSpaceScenario::IsTransferable(const Scenario* const other_scenar
                         }
                     }
                     
+
                     // if(ids[0]=="1000"&&ids[1]=="1001")
                     // {
                         // target_parking_spot_id = parking_spaces[2]->parking_space().id().id();//停入一号车位

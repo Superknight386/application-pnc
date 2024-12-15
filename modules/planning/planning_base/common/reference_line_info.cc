@@ -115,7 +115,7 @@ bool ReferenceLineInfo::Init(const std::vector<const Obstacle*>& obstacles,
   //final_change
   for(const auto& parking_overlap:map_path.parking_space_overlaps())
   {
-    reference_line_.AddSpeedLimit(parking_overlap.start_s+5,parking_overlap.end_s + 13,0.3);
+    reference_line_.AddSpeedLimit(parking_overlap.start_s+5,parking_overlap.end_s + 12,0.3);
   }
   //
 
